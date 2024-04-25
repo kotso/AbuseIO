@@ -29,7 +29,7 @@ trait ShowHelpWhenRunTimeExceptionOccurs
 
             echo Artisan::output();
 
-            return false;
+            return 1;
         }
     }
 }

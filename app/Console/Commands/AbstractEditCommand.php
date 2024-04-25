@@ -34,11 +34,11 @@ abstract class AbstractEditCommand extends Command
                 sprintf('Unable to find %s with this criteria', $this->getAsNoun())
             );
 
-            return false;
+            return 1;
         }
 
         if (!$this->handleOptions($model)) {
-            return false;
+            return 1;
         }
         $validation = $this->getValidator($model);
 
@@ -52,7 +52,7 @@ abstract class AbstractEditCommand extends Command
                 sprintf('Failed to edit the %s due to validation warnings', $this->getAsNoun())
             );
 
-            return false;
+            return 1;
         }
 
         if (!$model->update()) {
@@ -60,13 +60,13 @@ abstract class AbstractEditCommand extends Command
                 sprintf('Failed to save the %s into the database', $this->getAsNoun())
             );
 
-            return false;
+            return 1;
         }
         $this->info(
             sprintf('The %s has been updated', $this->getAsNoun())
         );
 
-        return true;
+        return 0;
     }
 
     abstract protected function getModelFromRequest();

@@ -39,7 +39,7 @@ abstract class AbstractCreateCommand extends Command
                 sprintf('Failed to create the %s due to validation warnings', $this->getAsNoun())
             );
 
-            return false;
+            return 1;
         }
 
         if (!$model->save()) {
@@ -47,7 +47,7 @@ abstract class AbstractCreateCommand extends Command
                 sprintf('Failed to save the %s into the database', $this->getAsNoun())
             );
 
-            return false;
+            return 1;
         }
         $msg = sprintf('The %s has been created', $this->getAsNoun());
         if (array_key_exists('id', $model->getAttributes())) {
@@ -55,7 +55,7 @@ abstract class AbstractCreateCommand extends Command
         }
         $this->info($msg);
 
-        return true;
+        return 0;
     }
 
     /**

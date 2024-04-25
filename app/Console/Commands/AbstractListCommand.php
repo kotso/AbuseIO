@@ -123,7 +123,7 @@ abstract class AbstractListCommand extends Command
             );
         }
 
-        return true;
+        return 0;
     }
 
     /**

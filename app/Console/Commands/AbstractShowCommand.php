@@ -58,7 +58,7 @@ abstract class AbstractShowCommand extends Command
             );
         }
 
-        return true;
+        return 0;
     }
 
     /**

@@ -48,11 +48,11 @@ abstract class AbstractDeleteCommand extends Command
                 sprintf('Unable to find %s with this criteria', $this->getAsNoun())
             );
 
-            return false;
+            return 1;
         }
 
         if ($this->stopDeleteAndThrowAnErrorBecauseRelations($object)) {
-            return false;
+            return 1;
         }
 
         if (!$object->delete()) {
@@ -60,14 +60,14 @@ abstract class AbstractDeleteCommand extends Command
                 sprintf('Unable to delete %s from the system', $this->getAsNoun())
             );
 
-            return false;
+            return 1;
         }
 
         $this->info(
             sprintf('The %s has been deleted from the system', $this->getAsNoun())
         );
 
-        return true;
+        return 0;
     }
 
     /**
