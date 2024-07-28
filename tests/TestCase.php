@@ -13,7 +13,7 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
      *
      * @var string
      */
-    protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'https://api.cloudhosted.io';
 
     protected $userId = 1; // use the default admin user defined in the db seed
 

@@ -284,6 +284,7 @@ class AccountsController extends Controller
      */
     public function apiUpdate(AccountFormRequest $accountForm, Account $account)
     {
+        dd($accountForm);
         $account->update($accountForm->all());
 
         return $this->respondWithItem($account, new AccountTransformer());
